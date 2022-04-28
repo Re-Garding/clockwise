@@ -53,8 +53,9 @@ def meetings_to_reschedule(meetings):
                 to_add.add(person)
         if attended == False:
             reschedule.append(meetings_by_size[-num])
-            for pers in meetings_by_size[-num]:
-                attendees.add(pers)
+            attendees = set.union(attendees, to_add)
+            # for pers in meetings_by_size[-num]:
+            #     attendees.add(pers)
 
     print(f'Reschedule the following meetings: {reschedule}')
     print(f'This will affect {len(attendees)} employees')
